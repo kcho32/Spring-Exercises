@@ -20,6 +20,12 @@ public class OrderServiceImpl implements OrderService {
     // 인터페이스만 의존 -> NullPoint Exception 나옴 -> 위 값들에는 Null이 들어가 있음 -> 실패!
     // 누군가가 이 서비스 구현체에 값을 넣어주어야한다.
 
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
         Member member = memberRepository.findById(memberId);
