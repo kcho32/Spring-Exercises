@@ -1,9 +1,12 @@
 package hello.core.member;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 
 // db확정이 안되었기 때문에 메모리를 사용 -> 휘발성
+@Component
 public class MemoryMemberRepository implements MemberRepository {
 
     // 그냥 HashMap보단 Conquerer Hashmap 사용 추천
